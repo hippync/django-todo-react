@@ -22,7 +22,7 @@ To enhance this project and improve my DevOps skills, I will be working on the f
    - Use branching strategies like GitFlow or GitHub Flow.
 
 2. **Continuous Integration (CI)**
-   - Set up CI pipelines using GitHub Actions, CircleCI, or Travis CI.
+   - Set up CI pipelines using GitHub Actions.
    - Implement automated testing:
      - **Backend (Django)**: Use `pytest` and `pytest-django` for testing.
      - **Frontend (React)**: Use `Jest` and `React Testing Library` for testing.
@@ -35,7 +35,7 @@ To enhance this project and improve my DevOps skills, I will be working on the f
 ### Continuous Deployment (CD) & Infrastructure as Code (IaC)
 
 4. **Continuous Deployment (CD)**
-   - Set up CD pipelines for automated deployments to staging or production environments.
+   - Set up CD pipelines for automated deployments to staging or production environments using GitHub Actions.
 
 5. **Infrastructure as Code (IaC)**
    - Use Terraform to describe and provision infrastructure (servers, databases, networks).
@@ -64,7 +64,7 @@ To enhance this project and improve my DevOps skills, I will be working on the f
     - Integrate security tools like OWASP and Snyk to analyze code and dependencies for vulnerabilities.
     - Implement security policies to protect the CI/CD pipeline and infrastructure.
 
-## Example of CI/CD Pipeline Configuration
+## GitHub Actions CI/CD Pipeline Configuration
 
 Below is an example configuration for a CI/CD pipeline using GitHub Actions:
 
@@ -127,5 +127,5 @@ jobs:
 
       - name: Deploy to Production
         run: |
-          # Commandes pour déployer votre application
-          echo "Déploiement en cours..."
+          # Commands to deploy your application
+          echo "Deployment in progress..."
