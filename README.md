@@ -1,6 +1,6 @@
 # To-Do Application with Django and React
 
-This project is a simple To-Do application built using Django for the backend and React for the frontend. The app allows users to create, read, update, and delete to-do items.
+React serves as the frontend, or client-side framework, handling the user interface and getting and setting data via requests to the Django backend, which is an API built using the Django REST framework.
 
 ## Features
 - Add, edit, and delete tasks
