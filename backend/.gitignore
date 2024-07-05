@@ -1,11 +1,2 @@
 # Ignore all __pycache__ directories
 **/__pycache__/
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Environments
-.venv
