@@ -1,131 +1,141 @@
-# To-Do Application with Django and React
+# To-Do Application
 
-React serves as the frontend, or client-side framework, handling the user interface and getting and setting data via requests to the Django backend, which is an API built using the Django REST framework.
+This is a simple To-Do application built with Django and React. The application allows users to create, read, update, and delete (CRUD) tasks.
+
+## Table of Contents
+
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
-- Add, edit, and delete tasks
-- Mark tasks as completed
 
-## Technologies Used
-- **Backend**: Django, Django REST framework
-- **Frontend**: React, Axios
-- **Database**: SQLite (default)
+- Add new tasks
+- View existing tasks
+- Update task details
+- Delete tasks
+- Mark tasks as complete or incomplete
 
-## Upcoming DevOps and TDD Integrations
+## Prerequisites
 
-To enhance this project and improve my DevOps skills, I will be working on the following integrations:
+Before you begin, ensure you have the following installed on your system:
 
-### Version Control & Continuous Integration (CI) with TDD
+- Python (version 3.8 or higher)
+- Node.js (version 14 or higher)
+- npm or yarn
+- Django (version 3.0 or higher)
+- Django REST framework
+- React
 
-1. **Version Control System (VCS)**
-   - ~~Initialize a Git repository for the project.~~
-   - ~~Use branching strategies like GitFlow or GitHub Flow.~~
+## Installation
 
-2. **Continuous Integration (CI)**
-   - Set up CI pipelines using GitHub Actions.
-   - Implement automated testing:
-     - **Backend (Django)**: Use `pytest` and `pytest-django` for testing.
-     - **Frontend (React)**: Use `Jest` and `React Testing Library` for testing.
+Follow these steps to get the project up and running on your local machine.
 
-3. **Test-Driven Development (TDD)**
-   - Write tests before code (Red-Green-Refactor cycle):
-     - **Backend**: Create tests for models and views.
-     - **Frontend**: Create tests for components and interactions.
+### Backend (Django)
 
-### Continuous Deployment (CD) & Infrastructure as Code (IaC)
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/todo-application.git
+    cd todo-application
+    ```
 
-4. **Continuous Deployment (CD)**
-   - Set up CD pipelines for automated deployments to staging or production environments using GitHub Actions.
+2. Create a virtual environment:
+    ```sh
+    python -m venv venv
+    ```
 
-5. **Infrastructure as Code (IaC)**
-   - Use Terraform to describe and provision infrastructure (servers, databases, networks).
+3. Activate the virtual environment:
+    - On Windows:
+        ```sh
+        venv\Scripts\activate
+        ```
+    - On macOS and Linux:
+        ```sh
+        source venv/bin/activate
+        ```
 
-### Configuration Management & Containerization
+4. Install the required Python packages:
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-6. **Configuration Management**
-   - Use Ansible to automate installation and configuration of the application and associated services.
+5. Apply migrations:
+    ```sh
+    python manage.py migrate
+    ```
 
-7. **Containerization**
-   - Dockerize the frontend and backend applications.
-   - Use Docker Compose to orchestrate the application's containers.
+6. Start the Django development server:
+    ```sh
+    python manage.py runserver
+    ```
 
-### Orchestration & Monitoring
+### Frontend (React)
 
-8. **Orchestration**
-   - Deploy and manage containers at scale with Kubernetes.
+1. Navigate to the frontend directory:
+    ```sh
+    cd frontend
+    ```
 
-9. **Monitoring and Logging**
-   - Set up Prometheus and Grafana for monitoring application performance and health.
-   - Implement logging using the ELK stack (Elasticsearch, Logstash, Kibana).
+2. Install the required npm packages:
+    ```sh
+    npm install
+    ```
 
-### Security
+3. Start the React development server:
+    ```sh
+    npm start
+    ```
 
-10. **Security**
-    - Integrate security tools like OWASP and Snyk to analyze code and dependencies for vulnerabilities.
-    - Implement security policies to protect the CI/CD pipeline and infrastructure.
+The React app will run on `http://localhost:3000` and the Django API will run on `http://localhost:8000`.
 
-## GitHub Actions CI/CD Pipeline Configuration
+## Usage
 
-Below is an example configuration for a CI/CD pipeline using GitHub Actions:
+1. Open your browser and go to `http://localhost:3000`.
+2. You can now create, view, update, and delete tasks.
 
-```yaml
-name: CI/CD Pipeline
+## Project Structure
 
-on: [push, pull_request]
+```plaintext
+todo-application/
+├── backend/
+│   ├── manage.py
+│   ├── todo/
+│   │   ├── __init__.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   ├── wsgi.py
+│   ├── tasks/
+│   │   ├── migrations/
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── views.py
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── App.js
+│   │   ├── index.js
+│   ├── package.json
+├── requirements.txt
+└── README.md
+```
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
+## Contributing
 
-    services:
-      postgres:
-        image: postgres:latest
-        ports:
-          - 5432:5432
-        env:
-          POSTGRES_DB: test_db
-          POSTGRES_USER: user
-          POSTGRES_PASSWORD: password
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-    steps:
-      - uses: actions/checkout@v2
+## Acknowledgements
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+This project was inspired by the tutorial from DigitalOcean. Special thanks to the author for the detailed guide.
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+[Build a To-Do Application Using Django and React](https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react)
 
-      - name: Run Django tests
-        run: python manage.py test
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
 
-      - name: Install Node.js dependencies
-        run: npm install
-
-      - name: Run React tests
-        run: npm test -- --watchAll=false
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Deploy to Production
-        run: |
-          # Commands to deploy your application
-          echo "Deployment in progress..."
