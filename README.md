@@ -18,8 +18,8 @@ To enhance this project and improve my DevOps skills, I will be working on the f
 ### Version Control & Continuous Integration (CI) with TDD
 
 1. **Version Control System (VCS)**
-   - Initialize a Git repository for the project.
-   - Use branching strategies like GitFlow or GitHub Flow.
+   - ~~Initialize a Git repository for the project.~~
+   - ~~Use branching strategies like GitFlow or GitHub Flow.~~
 
 2. **Continuous Integration (CI)**
    - Set up CI pipelines using GitHub Actions.
